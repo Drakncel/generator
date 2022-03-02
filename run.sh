@@ -1,1 +1,1 @@
-cd src && python3 app.py
+cd app && python3 main.py
