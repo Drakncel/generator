@@ -1,4 +1,5 @@
 import random
+import os
 
 def random_rgb():
     return [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
@@ -17,8 +18,9 @@ fields = {
 }
 
 def get_syllables():
+    PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
     syllables = []
-    f = open("syllables.csv", "r")
+    f = open(PROJECT_ROOT + "/syllables.csv", "r")
     while True:
         line = f.readline()
         if line == "":
@@ -50,7 +52,7 @@ def generate_item():
         item[key] = type_generators[fields[key]]()
     return item
 
-def generate(amount=20):
+def generateCreatures(amount=20):
     items = []
     for _ in range(amount):
         item = generate_item()

@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
-import generator
+from app.generator import generateCreatures
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
@@ -15,7 +15,7 @@ def home():
 @app.route("/generate")
 def generate():
     response = {
-        "result": generator.generate()
+        "result": generateCreatures()
     }
     return response
 
